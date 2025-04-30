@@ -4,9 +4,9 @@ Content-Type: application/json
 Idempotency-Key: a3b2c3d4-e5f6-7890-1234-567890abcdef
 
 {
-  "valor": 100.00,
-  "numero_cartao": "XXXX-XXXX-XXXX-1234",
-  "cvv": "123",
-  "data_validade": "12/25",
-  "descricao": "Compra de produto X"
+    "valor": 100.00,
+    "numero_cartao": "XXXX-XXXX-XXXX-1234",
+    "cvv": "123",
+    "data_validade": "12/25",
+    "descricao": "Compra de produto X"
 }

@@ -5,6 +5,13 @@
       <option name="customHeaders">
         <set>
           <option value="Idempotency-Key" />
+          <option value="    &quot;valor&quot;" />
+          <option value="    &quot;numero_cartao&quot;" />
+          <option value="    &quot;cvv&quot;" />
+          <option value="    &quot;data_validade&quot;" />
+          <option value="    &quot;descricao&quot;" />
+          <option value="{" />
+          <option value="}" />
         </set>
       </option>
     </inspection_tool>
