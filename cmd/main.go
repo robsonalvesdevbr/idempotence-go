@@ -53,7 +53,10 @@ func criarPagamentoHandler(w http.ResponseWriter, r *http.Request) {
 	if existe {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated) // Ou o status original da resposta
-		fmt.Fprint(w, respostaExistente)
+		_, err := fmt.Fprint(w, respostaExistente)
+		if err != nil {
+			return
+		}
 		fmt.Println("Requisição idempotente detectada. Retornando resposta anterior.")
 		return
 	}
@@ -84,12 +87,18 @@ func criarPagamentoHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	fmt.Fprint(w, string(respostaJSON))
+	_, err = fmt.Fprint(w, string(respostaJSON))
+	if err != nil {
+		return
+	}
 	fmt.Println("Pagamento processado e resposta armazenada com Idempotency-Key:", idempotencyKey)
 }
 
 func main() {
 	http.HandleFunc("/pagamentos", criarPagamentoHandler)
 	fmt.Println("Servidor rodando na porta 8000...")
-	http.ListenAndServe(":8000", nil)
+	err := http.ListenAndServe(":8000", nil)
+	if err != nil {
+		return
+	}
 }
