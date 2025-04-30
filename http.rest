@@ -1,3 +1,4 @@
+### Processa pagamento
 POST http://localhost:8000/pagamentos HTTP/1.1
 Content-Type: application/json
 Idempotency-Key: a3b2c3d4-e5f6-7890-1234-567890abcdef
